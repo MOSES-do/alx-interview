@@ -3,7 +3,7 @@
 import sys
 
 
-def print_msg(dict_sc, total_file_size):
+def print_msg(sc_dict, total_file_size):
     """
     Method to print
     Args:
@@ -14,7 +14,7 @@ def print_msg(dict_sc, total_file_size):
     """
 
     print("File size: {}".format(total_file_size))
-    for key, val in sorted(dict_sc.items()):
+    for key, val in sorted(sc_dict.items()):
         if val != 0:
             print("{}: {}".format(key, val))
 
@@ -22,7 +22,7 @@ def print_msg(dict_sc, total_file_size):
 total_file_size = 0
 code = 0
 counter = 0
-dict_sc = {"200": 0,
+sc_dict = {"200": 0,
            "301": 0,
            "400": 0,
            "401": 0,
@@ -33,7 +33,7 @@ dict_sc = {"200": 0,
 
 try:
     for line in sys.stdin:
-        parsed_line = line.split()  # create a list out of line space being th separator
+        parsed_line = line.split()  # create a list out of line space being the separator
         parsed_line = parsed_line[::-1]  # inverting
 
         if len(parsed_line) > 2:
@@ -45,12 +45,12 @@ try:
 
                 """if key is already exist increment its value by 1 else 
                    initialize to 1"""
-                if (code in dict_sc.keys()):
-                    dict_sc[code] += 1
+                if (code in sc_dict.keys()):
+                    sc_dict[code] += 1
 
             if (counter == 10):
-                print_msg(dict_sc, total_file_size)
+                print_msg(sc_dict, total_file_size)
                 counter = 0
 
 finally:
-    print_msg(dict_sc, total_file_size)
+    print_msg(sc_dict, total_file_size)
