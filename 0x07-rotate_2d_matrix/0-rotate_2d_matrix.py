@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Rotate a 2d Matrix 90 degrees"""
 
 
