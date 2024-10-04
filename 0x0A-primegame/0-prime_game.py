@@ -31,7 +31,7 @@ def isWinner(x, nums):
 
 
 def rm_multiples(ls, x):
-    """remove prime multiples"""s
+    """remove prime multiples"""
     for i in range(2, len(ls)):
         try:
             ls[i * x] = 0
